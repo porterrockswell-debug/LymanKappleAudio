@@ -346,7 +346,7 @@ const BOOKS = [
     prologue: false,
     folder: "",
     chapters: [
-      // "https://drive.google.com/file/d/PASTE_ID/view",
+      { title: "A Short Christmas Story", link: "11n-ZY_r4sXUZuQ_9fOcbwFT8GtnES8Bu" },
     ]
   },
   {
@@ -395,6 +395,34 @@ const BOOKS = [
     prologue: true,
     folder: "",
     chapters: [
+      { title: "Intro & Prologue", link: "1ha_KStgKoF3iPI3iScw67YZ-rEQfk6Lc" },
+      { title: "Chapter 1", link: "1BIPcSYJP8kTHdT_E2baHxvFAsSnd_o2M" },
+      { title: "Chapter 2", link: "1gYmDa6Va-wHOdto-iMoY9WE5LgKYd90a" },
+      { title: "Chapter 3", link: "1_bd252xwDuUr2CgdvUzV1l7G-3D7iYwy" },
+      { title: "Chapter 4", link: "1jCCMNv4DpE5o98D-wyc6zia_4bBS5meE" },
+      { title: "Chapter 5", link: "1F0_lybaLOK2JZ9bWWR0Y3tB-gIgJZ51j" },
+      { title: "Chapter 6", link: "1l4qpHQ5LVEn1pJBaGHkhJl6CAYhP3Xi5" },
+      { title: "Chapter 7", link: "1cccX9YCLdo3OcsZ4Dm-43-1Kz011pBFF" },
+      { title: "Chapter 8", link: "15uMDDN2N8Mi_sBsUvcq1gIA9GAN_k1iX" },
+      { title: "Chapter 9", link: "1W7r9hMGICVtZTi33RAh-u0eRq-c2jL81" },
+      { title: "Chapter 10", link: "1sDkN-1NOsrm7jGz1Z85ZGjFXzVNMsvSx" },
+      { title: "Chapter 11", link: "1kWfd4TdXCTWzcp8qoTyBWv3smdq7OtOe" },
+      { title: "Chapter 12", link: "14TpHiKQEELCL5oEht-IhlN0UiJqgB7Ce" },
+      { title: "Chapter 13", link: "1oC1C65szwE3ZnRDw4jCyv7XtLVBCiQGv" },
+      { title: "Chapter 14", link: "1mYsy573A99DtPZpuTlLP4g1FPJ2BefeA" },
+      { title: "Chapter 15", link: "1sX1hXnanVgNWb2NnyjaaFj6nFS0K1fqM" },
+      { title: "Chapter 16", link: "1R8qe3grpGx2tKdP4qlIp2-kVnK-78XWj" },
+      { title: "Chapter 17", link: "18oBr9aqrwZwDrWZJiz6sppGDwDexg1QA" },
+      { title: "Chapter 18", link: "1RJbW7MRXgbp0ct0IqpJBA5u_8tfKyRUk" },
+      { title: "Chapter 19", link: "1B4Pxy0s7TCbc874GtZMzohVWNK4uxgJ6" },
+      { title: "Chapter 20", link: "15RCVJTrGknjmEMVoU3RxThfxgPnREMn3" },
+      { title: "Chapter 21", link: "1OwbUixoMYWYH5s5bFD-6w37KpZwPrW1X" },
+      { title: "Chapter 22", link: "1jNVUWJ96vaqeeUKK2_HPzHsK0Kqz67nG" },
+      { title: "Chapter 23", link: "1Y4BV_0JOXUbGzxA6uB2-y2l8nRPSe1NL" },
+      { title: "Chapter 24", link: "11E11bGOIg2XpKtAgE0SRXbmq99juzWau" },
+      { title: "Chapter 25", link: "13GdKDPhQRp_4rAOzoDz4Y55bmObvBkCl" },
+      { title: "Chapter 26", link: "1Qx1GCtYi6qRe-dLv8rRN5rT5h5MTvrWA" },
+      { title: "Chapter 27", link: "1Cxqa0RPvovKy_27XHCBXdqDCXjcilPd8" },
     ]
   }
 ];
@@ -426,7 +454,7 @@ function chaptersOf(b){
       if(b.prologue && i === 0) title = "Prologue";
       else { n++; title = "Chapter " + n; }
     } else if(/^chapter\s+\d+/i.test(title)) n++;
-    return { title, id: driveId(obj.link), short: title === "Prologue" ? "P" : (title.match(/\d+/)||[i+1])[0] };
+    return { title, id: driveId(obj.link), short: /prologue/i.test(title) ? "P" : (title.match(/\d+/)||[i+1])[0] };
   });
 }
 
